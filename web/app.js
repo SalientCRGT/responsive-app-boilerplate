@@ -6,6 +6,7 @@ angular.module('web').config(function($stateProvider, $urlRouterProvider) {
         url: '/login',
         templateUrl: 'partial/login/login.html'
     });
+    
     /* Add New States Above */
     $urlRouterProvider.otherwise('/home');
 
