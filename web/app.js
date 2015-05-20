@@ -2,6 +2,11 @@ angular.module('web', ['ui.bootstrap','ui.utils','ui.router','ngAnimate']);
 
 angular.module('web').config(function($stateProvider, $urlRouterProvider) {
 
+    $stateProvider.state('login', {
+        url: '/login',
+        templateUrl: 'partial/login/login.html'
+    });
+    
     /* Add New States Above */
     $urlRouterProvider.otherwise('/home');
 
