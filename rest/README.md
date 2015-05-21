@@ -1,27 +1,27 @@
 ## Prerequisites
 
 * [MySQL](http://www.mysql.com/downloads/)
-* [PHP] (http://php.net/downloads.php)
 
 ## Install PHP
 
-cd into the /web folder and run the following commands:
+Proceed to the windows page and download VC11 x## Thread Safe zip file (x86 or x64 is up to you)
 
-	npm install -g bower
-	npm install -g grunt-cli
-	npm install
+	Create the C:\php folder on your hard drive
+	Unzip the php into the c:\php folder
 
-If you get any errors during the npm install, run the command again and it should be fine.
+The VC11 builds require to have the Visual C++ Redistributable for Visual Studio 2012 x86 or x64 installed.
 
-	bower install
+	Proceed to (http://www.microsoft.com/en-us/download/details.aspx?id=30679) and install the file
 
-To test that everything is working, run
+Configure the php.ini file for windows
 
-	grunt build
-	grunt test
+	Copy the php.ini-development file from c:\php to your c:\windows folder and rename to php.ini
+	Add the following lines to the c:\windows\php.ini to activate mysql
+		extension = php_mysql.dll
+		extension = php_mysqli.dll
+		extension_dir = "ext"
 
 ## Commands
 
-* *grunt serve* - runs a localhost server and listens to changes in files. This does not build the app into /dist.
-* *grunt test* - runs karma unit tests on angular code
-* *grunt build* - builds the app into /dist
+* *c:\php\php -i* - Display information about php setup
+* *c:\php\php -S localhost:8080* - Run this command from the directory on your local containing the repo and it will start the web server with the current directory as the root.   This is the setup for our test server at 10.30.1.155
