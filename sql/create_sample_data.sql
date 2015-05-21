@@ -1,4 +1,4 @@
-DROP TABLE tbl_employee;
+DROP TABLE IF EXISTS tbl_employee;
 
 CREATE TABLE IF NOT EXISTS tbl_employee (
   employee_id int(4) NOT NULL AUTO_INCREMENT,
