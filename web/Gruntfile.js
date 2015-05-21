@@ -68,7 +68,7 @@ module.exports = function (grunt) {
         src:['dist','temp']
       },
       after: {
-        src:['temp']
+        src:['temp', 'app.css']
       }
     },
     less: {
@@ -76,7 +76,7 @@ module.exports = function (grunt) {
         options: {
         },
         files: {
-          'temp/app.css': 'app.less'
+          'app.css': 'app.less'
         }
       }
     },
@@ -93,9 +93,9 @@ module.exports = function (grunt) {
     copy: {
       main: {
         files: [
+          {src: ['app.css'], dest: 'dist/'},
           {src: ['img/**'], dest: 'dist/'},
-          {src: ['bower_components/font-awesome/fonts/**'], dest: 'dist/',filter:'isFile',expand:true},
-          {src: ['bower_components/bootstrap/fonts/**'], dest: 'dist/',filter:'isFile',expand:true}
+          {src: ['bower_components/font-awesome/fonts/**'], dest: 'dist/',filter:'isFile',expand:true}
           //{src: ['bower_components/angular-ui-utils/ui-utils-ieshiv.min.js'], dest: 'dist/'},
           //{src: ['bower_components/select2/*.png','bower_components/select2/*.gif'], dest:'dist/css/',flatten:true,expand:true},
           //{src: ['bower_components/angular-mocks/angular-mocks.js'], dest: 'dist/'}
@@ -125,8 +125,11 @@ module.exports = function (grunt) {
       }
     },
     cssmin: {
+      options: {
+        sourceMap: true
+      },
       main: {
-        src:['temp/app.css','<%= dom_munger.data.appcss %>'],
+        src:['app.css','<%= dom_munger.data.appcss %>'],
         dest:'dist/app.full.min.css'
       }
     },
@@ -143,6 +146,10 @@ module.exports = function (grunt) {
       }
     },
     uglify: {
+      options: {
+        sourceMap: true,
+        sourceMapIncludeSources: true
+      },
       main: {
         src: 'temp/app.full.js',
         dest:'dist/app.full.min.js'

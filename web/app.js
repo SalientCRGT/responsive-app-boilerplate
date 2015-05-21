@@ -8,7 +8,7 @@ angular.module('web').config(function($stateProvider, $urlRouterProvider) {
     });
     
     /* Add New States Above */
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/login');
 
 });
 
@@ -25,4 +25,5 @@ angular.module('web').run(function($rootScope) {
         }
     };
 
+    $.material.init();
 });

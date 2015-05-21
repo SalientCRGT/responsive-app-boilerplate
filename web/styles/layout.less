@@ -1,0 +1,35 @@
+.header-panel{
+	color: white;
+	background-color: @primary;
+	height: @header-height-md;
+
+	@media (min-width: @screen-lg-min) {
+		height: @header-height-lg;
+	}
+
+	div{
+		height:100%;
+	}
+	h1{
+		position:absolute;
+		bottom:10px;
+	}
+}
+
+.floating-title{
+	position:relative;
+
+	h1{
+		position:absolute;
+		top:-2em;
+		color:white;
+	}
+}
+
+.break-edge{
+	margin-top: -(@header-height-md / 4);
+
+	@media (min-width: @screen-lg-min){
+		margin-top: -(@header-height-lg / 4);
+	}
+}
